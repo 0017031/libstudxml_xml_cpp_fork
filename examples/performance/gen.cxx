@@ -14,7 +14,7 @@ static const char* enums[] =
 };
 
 int
-main (int argc, char* argv[])
+main1 (int argc, char* argv[])
 {
   if (argc != 3)
   {
@@ -73,4 +73,6 @@ main (int argc, char* argv[])
   }
 
   ofs << "</t:root>";
+
+  return 0;
 }

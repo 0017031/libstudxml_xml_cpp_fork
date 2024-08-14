@@ -33,7 +33,7 @@ characters (void* data, const XML_Char* s, int n)
 }
 
 int
-main (int argc, char* argv[])
+main2 (int argc, char* argv[])
 {
   if (argc != 2)
   {
@@ -123,6 +123,7 @@ main (int argc, char* argv[])
     //
     double tpb (((size * iterations) / ms) * 1000000/(1024*1024));
     cerr << "  throughput:     " << tpb << " MBytes/sec" << endl;
+    return 0;
   }
   catch (ios_base::failure const&)
   {
