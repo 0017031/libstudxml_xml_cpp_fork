@@ -1,8 +1,17 @@
 cmake_minimum_required(VERSION 3.20)
-project(libstudxml)
 
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR) # stand-alone
+  message("project(libstudxml)")
+  project(libstudxml)
+else() # reffered by add_subdirectory()
+  message("lib: libstudxml\t(${CMAKE_BUILD_TYPE})")
+endif()
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(examples)
+add_subdirectory(tests)
+
 
 set(LIBSTUDXML_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(LIBSTUDXML_INCLUDE_DIR ${LIBSTUDXML_ROOT_DIR})
@@ -54,5 +63,3 @@ target_include_directories(libstudxml
   PUBLIC ${LIBSTUDXML_ROOT_DIR}
   PUBLIC ${EXPAT_INCLUDE_DIRS}
 )
-
-add_subdirectory(examples)
